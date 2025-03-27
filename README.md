@@ -1,1 +1,18 @@
 # TECKTENTRA-2K25
+
+Overview
+FoundConnect is a simple web-based platform that connects small founders with investors and the community. Founders can showcase their startups, while investors and users can discover and upvote promising ideas.
+Features
+Submit a startup with a name and description.
+
+View a list of submitted startups.
+
+Upvote startups to highlight the most promising ideas.
+
+Tech Stack
+
+Frontend: HTML, CSS, JavaScript
+
+Backend: Python (Flask) / R (Plumber for API)
+
+Database: In-memory storage (can be extended to a database)
