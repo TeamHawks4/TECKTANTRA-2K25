@@ -14,5 +14,5 @@ Backend: R(web framework using Shiny package)
 Deployment: model deployed to shinyapps.io server and is live to anyone with internet connectivity
 
 web url : https://aditya-kumar-roy.shinyapps.io/LaunchX/
-
+websites link : https://launchx.netlify.app/
 
