@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit Your Startup</title>
-    <link rel="stylesheet" href="addstartup.css">
+    <title>Startup Submission Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="addstartup.css">
 </head>
 <body>
-    <!-- Animated Background -->
+    <!-- Animated Background Particles -->
     <div class="particles">
         <div class="particle"></div>
         <div class="particle"></div>
@@ -19,78 +19,112 @@
 
     <div class="container">
         <h2>🚀 Submit Your Startup</h2>
-        <form action="submit.php" method="post" enctype="multipart/form-data">
-            
+        <form id="startupForm">
             <!-- Founder Details -->
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required>
-
-            <label for="linkedin">LinkedIn Profile (optional)</label>
-            <input type="url" id="linkedin" name="linkedin">
+            <div class="form-section">
+                <h3>Founder Information</h3>
+                <div class="form-group">
+                    <label for="name">Full Name*</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn Profile</label>
+                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                </div>
+            </div>
 
             <!-- Startup Details -->
-            <label for="startup">Startup Name</label>
-            <input type="text" id="startup" name="startup" required>
-
-            <label for="website">Website (if available)</label>
-            <input type="url" id="website" name="website">
-
-            <label for="industry">Industry/Sector</label>
-            <input type="text" id="industry" name="industry" required>
-
-            <label for="description">Brief Description</label>
-            <textarea id="description" name="description" rows="4" required></textarea>
-
-            <label for="year">Year Founded</label>
-            <input type="number" id="year" name="year" min="1900" max="2025" required>
-
-            <label for="stage">Startup Stage</label>
-            <select id="stage" name="stage">
-                <option value="Idea">Idea</option>
-                <option value="MVP">MVP</option>
-                <option value="Pre-revenue">Pre-revenue</option>
-                <option value="Revenue-generating">Revenue-generating</option>
-                <option value="Scaling">Scaling</option>
-            </select>
-
-            <label for="funding">Funding Status</label>
-            <select id="funding" name="funding">
-                <option value="Bootstrapped">Bootstrapped</option>
-                <option value="Seed">Seed</option>
-                <option value="Series A">Series A</option>
-                <option value="Series B+">Series B+</option>
-            </select>
-
-            <label for="problem">What problem does your startup solve?</label>
-            <textarea id="problem" name="problem" rows="4" required></textarea>
-
-            <label for="market">Target Market</label>
-            <textarea id="market" name="market" rows="4" required></textarea>
-
-            <label for="competitors">Key Competitors (if any)</label>
-            <textarea id="competitors" name="competitors" rows="3"></textarea>
+            <div class="form-section">
+                <h3>Startup Details</h3>
+                <div class="form-group">
+                    <label for="startup">Startup Name*</label>
+                    <input type="text" id="startup" name="startup" required>
+                </div>
+                <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" id="website" name="website" placeholder="https://yourstartup.com">
+                </div>
+                <div class="form-group">
+                    <label for="industry">Industry/Sector*</label>
+                    <input type="text" id="industry" name="industry" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Brief Description*</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="year">Year Founded*</label>
+                    <input type="number" id="year" name="year" min="1900" max="2025" required>
+                </div>
+                <div class="form-group">
+                    <label for="stage">Startup Stage*</label>
+                    <select id="stage" name="stage" required>
+                        <option value="">Select stage</option>
+                        <option value="Idea">Idea</option>
+                        <option value="MVP">MVP</option>
+                        <option value="Pre-revenue">Pre-revenue</option>
+                        <option value="Revenue-generating">Revenue-generating</option>
+                        <option value="Scaling">Scaling</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="funding">Funding Status*</label>
+                    <select id="funding" name="funding" required>
+                        <option value="">Select funding stage</option>
+                        <option value="Bootstrapped">Bootstrapped</option>
+                        <option value="Seed">Seed</option>
+                        <option value="Series A">Series A</option>
+                        <option value="Series B+">Series B+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="problem">What problem does your startup solve?*</label>
+                    <textarea id="problem" name="problem" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="market">Target Market*</label>
+                    <textarea id="market" name="market" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="competitors">Key Competitors (if any)</label>
+                    <textarea id="competitors" name="competitors" rows="3"></textarea>
+                </div>
+            </div>
 
             <!-- File Upload -->
-            <label for="pitchdeck">Upload Pitch Deck (PDF, max 10MB)</label>
-            <input type="file" id="pitchdeck" name="pitchdeck" accept=".pdf" required>
+            <div class="form-section">
+                <h3>Additional Information</h3>
+                <div class="form-group">
+                    <label for="pitchdeck">Upload Pitch Deck (PDF, max 10MB)*</label>
+                    <input type="file" id="pitchdeck" name="pitchdeck" accept=".pdf" required>
+                </div>
+            </div>
 
             <!-- Consent -->
-            <label class="checkbox-label">
-                <input type="checkbox" name="terms" required> I agree to the terms and conditions and privacy policy.
-            </label>
-            <label class="checkbox-label">
-                <input type="checkbox" name="contact" required> I consent to be contacted regarding my submission.
-            </label>
+            <div class="form-section">
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the terms and conditions and privacy policy*</label>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="contact" name="contact" required>
+                    <label for="contact">I consent to be contacted regarding my submission*</label>
+                </div>
+            </div>
 
-            <!-- Submit -->
-            <button type="submit">Submit Startup</button>
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn">Submit Startup</button>
         </form>
     </div>
+
+    <script src="addstartup.js"></script>
 </body>
 </html>
