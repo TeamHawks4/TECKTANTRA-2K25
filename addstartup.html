@@ -1,183 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startup Submission Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #f4f6f8;
-            padding: 40px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-section {
-            margin-bottom: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            background: #2b82f6;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            display: block;
-            margin: 20px auto 0;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .checkbox-group input {
-            width: auto;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Startup Submission Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="addstartup.css">
 </head>
 <body>
+  <!-- Animated Background Particles -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
 
-    <div class="container">
-        <h2>🚀 Submit Your Startup</h2>
-        <form id="startupForm">
-            <!-- Founder Details -->
-            <div class="form-section">
-                <h3>Founder Information</h3>
-                <div class="form-group">
-                    <label for="name">Full Name*</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email*</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number*</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="linkedin">LinkedIn Profile</label>
-                    <input type="url" id="linkedin" name="linkedin">
-                </div>
-            </div>
+  <div class="container">
+    <h2>🚀 Submit Your Startup</h2>
+    <form id="startupForm">
+      <!-- Founder Info -->
+      <div class="form-section">
+        <h3>Founder Information</h3>
+        <div class="form-group">
+          <label for="name">Full Name*</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number*</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="linkedin">LinkedIn Profile</label>
+          <input type="url" id="linkedin" name="linkedin">
+        </div>
+      </div>
 
-            <!-- Startup Details -->
-            <div class="form-section">
-                <h3>Startup Details</h3>
-                <div class="form-group">
-                    <label for="startup">Startup Name*</label>
-                    <input type="text" id="startup" name="startup" required>
-                </div>
-                <div class="form-group">
-                    <label for="website">Website</label>
-                    <input type="url" id="website" name="website">
-                </div>
-                <div class="form-group">
-                    <label for="industry">Industry/Sector*</label>
-                    <input type="text" id="industry" name="industry" required>
-                </div>
-                <div class="form-group">
-                    <label for="description">Brief Description*</label>
-                    <textarea id="description" name="description" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="year">Year Founded*</label>
-                    <input type="number" id="year" name="year" min="1900" max="2025" required>
-                </div>
-                <div class="form-group">
-                    <label for="stage">Startup Stage*</label>
-                    <select id="stage" name="stage" required>
-                        <option value="">Select stage</option>
-                        <option value="Idea">Idea</option>
-                        <option value="MVP">MVP</option>
-                        <option value="Pre-revenue">Pre-revenue</option>
-                        <option value="Revenue-generating">Revenue-generating</option>
-                        <option value="Scaling">Scaling</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="funding">Funding Status*</label>
-                    <select id="funding" name="funding" required>
-                        <option value="">Select funding stage</option>
-                        <option value="Bootstrapped">Bootstrapped</option>
-                        <option value="Seed">Seed</option>
-                        <option value="Series A">Series A</option>
-                        <option value="Series B+">Series B+</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="problem">What problem does your startup solve?*</label>
-                    <textarea id="problem" name="problem" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="market">Target Market*</label>
-                    <textarea id="market" name="market" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="competitors">Key Competitors (if any)</label>
-                    <textarea id="competitors" name="competitors" rows="3"></textarea>
-                </div>
-            </div>
+      <!-- Startup Info -->
+      <div class="form-section">
+        <h3>Startup Details</h3>
+        <div class="form-group">
+          <label for="startup">Startup Name*</label>
+          <input type="text" id="startup" name="startup" required>
+        </div>
+        <div class="form-group">
+          <label for="website">Website</label>
+          <input type="url" id="website" name="website">
+        </div>
+        <div class="form-group">
+          <label for="industry">Industry/Sector*</label>
+          <input type="text" id="industry" name="industry" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Brief Description*</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="year">Year Founded*</label>
+          <input type="number" id="year" name="year" required>
+        </div>
+        <div class="form-group">
+          <label for="stage">Startup Stage*</label>
+          <select id="stage" name="stage" required>
+            <option value="">Select stage</option>
+            <option value="Idea">Idea</option>
+            <option value="MVP">MVP</option>
+            <option value="Pre-revenue">Pre-revenue</option>
+            <option value="Revenue-generating">Revenue-generating</option>
+            <option value="Scaling">Scaling</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="funding">Funding Status*</label>
+          <select id="funding" name="funding" required>
+            <option value="">Select funding stage</option>
+            <option value="Bootstrapped">Bootstrapped</option>
+            <option value="Seed">Seed</option>
+            <option value="Series A">Series A</option>
+            <option value="Series B+">Series B+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="problem">What problem does your startup solve?*</label>
+          <textarea id="problem" name="problem" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="market">Target Market*</label>
+          <textarea id="market" name="market" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="competitors">Key Competitors (if any)</label>
+          <textarea id="competitors" name="competitors"></textarea>
+        </div>
+      </div>
 
-            <!-- Consent -->
-            <div class="form-section">
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">I agree to the terms and conditions and privacy policy*</label>
-                </div>
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="contact" name="contact" required>
-                    <label for="contact">I consent to be contacted regarding my submission*</label>
-                </div>
-            </div>
+      <!-- File Upload -->
+      <div class="form-section">
+        <h3>Additional Information</h3>
+        <div class="form-group">
+          <label for="pitchdeck">Upload Pitch Deck (PDF)*</label>
+          <input type="file" id="pitchdeck" name="pitchdeck" accept=".pdf" required>
+        </div>
+      </div>
 
-            <!-- Submit -->
-            <button type="submit">Submit Startup</button>
-        </form>
-    </div>
+      <!-- Consent -->
+      <div class="form-section">
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="terms" required>
+          <label for="terms">I agree to the terms and privacy policy*</label>
+        </div>
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="contact" required>
+          <label for="contact">I consent to be contacted regarding my submission*</label>
+        </div>
+      </div>
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        // Firebase SDK
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+      <button type="submit">Submit Startup</button>
+    </form>
+  </div>
 
-        // TODO: Replace with your actual Firebase project configuration
-        const firebaseConfig = {
+  <!-- Display Submitted Startups -->
+  <div class="container">
+    <h2>📋 Submitted Startups</h2>
+    <div id="startupList"></div>
+  </div>
+
+  <!-- Firebase Integration -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    // ✅ Your Firebase Config
+    const firebaseConfig = {
   apiKey: "AIzaSyA3hi4KnGVR8OjhHNrSutyPBnRWF8Hf5Tc",
   authDomain: "startup-submission2.firebaseapp.com",
   projectId: "startup-submission2",
@@ -186,44 +145,74 @@
   appId: "1:499118171725:web:fce63910aba050d599de04"
 };
 
-        
+    
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
-        // Form submission logic
-        const form = document.getElementById("startupForm");
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
+    const form = document.getElementById('startupForm');
+    const startupList = document.getElementById('startupList');
 
-            const data = {
-                name: form.name.value,
-                email: form.email.value,
-                phone: form.phone.value,
-                linkedin: form.linkedin.value,
-                startup: form.startup.value,
-                website: form.website.value,
-                industry: form.industry.value,
-                description: form.description.value,
-                year: form.year.value,
-                stage: form.stage.value,
-                funding: form.funding.value,
-                problem: form.problem.value,
-                market: form.market.value,
-                competitors: form.competitors.value
-            };
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-            // Save to Firebase using startup name as key
-            set(ref(db, 'startups/' + data.startup.replace(/\s+/g, '_')), data)
-                .then(() => {
-                    alert("Startup submitted successfully!");
-                    form.reset();
-                })
-                .catch((error) => {
-                    alert("Submission failed: " + error.message);
-                });
-        });
-    </script>
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        linkedin: form.linkedin.value,
+        startup: form.startup.value,
+        website: form.website.value,
+        industry: form.industry.value,
+        description: form.description.value,
+        year: form.year.value,
+        stage: form.stage.value,
+        funding: form.funding.value,
+        problem: form.problem.value,
+        market: form.market.value,
+        competitors: form.competitors.value
+      };
+
+      try {
+        await push(ref(db, 'startups'), formData);
+        alert("Startup submitted successfully!");
+        form.reset();
+      } catch (error) {
+        console.error("Error saving to Firebase:", error);
+        alert("Error submitting form.");
+      }
+    });
+
+    // Real-time Display
+    const startupsRef = ref(db, 'startups');
+    onValue(startupsRef, (snapshot) => {
+      startupList.innerHTML = '';
+      const data = snapshot.val();
+      if (!data) {
+        startupList.innerHTML = "<p>No startups submitted yet.</p>";
+        return;
+      }
+
+      Object.values(data).forEach(startup => {
+        const div = document.createElement('div');
+        div.style.border = "1px solid #ccc";
+        div.style.padding = "15px";
+        div.style.margin = "10px 0";
+        div.style.borderRadius = "8px";
+        div.style.background = "#fff";
+
+        div.innerHTML = `
+          <h3>${startup.startup}</h3>
+          <p><strong>Founder:</strong> ${startup.name}</p>
+          <p><strong>Email:</strong> ${startup.email}</p>
+          <p><strong>Phone:</strong> ${startup.phone}</p>
+          <p><strong>Industry:</strong> ${startup.industry}</p>
+          <p><strong>Stage:</strong> ${startup.stage}</p>
+          <p><strong>Description:</strong> ${startup.description}</p>
+        `;
+        startupList.appendChild(div);
+      });
+    });
+  </script>
 </body>
 </html>
