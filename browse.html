@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Startups | LaunchX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="app.css">
+    <style>
+        /* Additional styles for browse page */
+        .browse-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .search-filter-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            gap: 2rem;
+        }
+        
+        .search-box {
+            flex: 1;
+            max-width: 500px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .filter-dropdown {
+            position: relative;
+        }
+        
+        .filter-dropdown button {
+            background: rgba(108, 92, 231, 0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(15, 15, 35, 0.9);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            min-width: 200px;
+            z-index: 100;
+            display: none;
+        }
+        
+        .filter-options.show {
+            display: block;
+        }
+        
+        .filter-options label {
+            display: block;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .filter-options input {
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .search-filter-container {
+                flex-direction: column;
+            }
+            
+            .search-box {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="particles" id="particles-js"></div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Floating Navigation -->
+    <header>
+        <div class="container">
+            <nav class="glass-nav">
+                <div class="logo" data-text="LaunchX">LaunchX</div>
+                <ul class="nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="browse.html" class="active"><i class="fas fa-rocket"></i> Startups</a></li>
+                    <li><a href="investers.html"><i class="fas fa-hand-holding-usd"></i> Investors</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="auth-buttons">
+                        <button class="btn btn-login glass"><i class="fas fa-sign-in-alt"></i> Login</button>
+                        <button class="btn btn-signup pulse"><i class="fas fa-user-plus"></i> Sign Up</button>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="browse-page">
+        <section class="featured-startups">
+            <div class="container">
+                <div class="browse-header">
+                    <h1>Discover <span class="text-gradient">Innovative Startups</span></h1>
+                    <p>Browse through our curated list of promising early-stage companies</p>
+                </div>
+                
+                <div class="search-filter-container glass">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search startups..." id="searchInput">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <div class="filter-dropdown">
+                        <button id="filterToggle">
+                            <i class="fas fa-filter"></i> Filter
+                        </button>
+                        <div class="filter-options glass" id="filterOptions">
+                            <h4>Categories</h4>
+                            <label>
+                                <input type="checkbox" name="category" value="Tech" checked> Tech
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category" value="Fintech" checked> Fintech
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category" value="Health" checked> Health
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category" value="AI" checked> AI
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category" value="Sustainability" checked> Sustainability
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category" value="EdTech" checked> EdTech
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category" value="AgriTech" checked> AgriTech
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category" value="E-commerce" checked> E-commerce
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="startup-grid" id="browseStartupGrid">
+                    <!-- Startup cards will be inserted here by JavaScript -->
+                </div>
+                
+                <div class="load-more-container">
+                    <button class="btn btn-secondary glass" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i> Load More
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Glass Footer -->
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo" data-text="LaunchX">LaunchX</div>
+                    <p>Connecting visionary founders with strategic investors to build the future together.</p>
+                    <div class="newsletter glass">
+                        <input type="email" placeholder="Your email">
+                        <button class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-angellist"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="links-column">
+                        <h4><i class="fas fa-user-tie"></i> For Founders</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> How it works</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Pricing</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Resources</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-column">
+                        <h4><i class="fas fa-chart-line"></i> For Investors</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Discover Startups</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Investment Guide</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Deal Flow</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-column">
+                        <h4><i class="fas fa-building"></i> Company</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> About Us</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Careers</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TeamHawks. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Startup Detail Modal -->
+    <div class="modal" id="startupModal">
+        <div class="modal-content glass">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be inserted by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Additional functionality for browse page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle filter dropdown
+            const filterToggle = document.getElementById('filterToggle');
+            const filterOptions = document.getElementById('filterOptions');
+            
+            if (filterToggle && filterOptions) {
+                filterToggle.addEventListener('click', function() {
+                    filterOptions.classList.toggle('show');
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!filterToggle.contains(e.target) && !filterOptions.contains(e.target)) {
+                        filterOptions.classList.remove('show');
+                    }
+                });
+            }
+            
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    const cards = document.querySelectorAll('.startup-card');
+                    
+                    cards.forEach(card => {
+                        const name = card.querySelector('h3').textContent.toLowerCase();
+                        const desc = card.querySelector('p').textContent.toLowerCase();
+                        const category = card.querySelector('.startup-category').textContent.toLowerCase();
+                        
+                        if (name.includes(searchTerm) || desc.includes(searchTerm) || category.includes(searchTerm)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+            
+            // Load more functionality
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    // In a real implementation, this would load more data from an API
+                    // For now, we'll just show all cards
+                    const hiddenCards = document.querySelectorAll('.startup-card[style="display: none;"]');
+                    hiddenCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                    
+                    // Hide button if no more cards to show
+                    if (document.querySelectorAll('.startup-card[style="display: none;"]').length === 0) {
+                        loadMoreBtn.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

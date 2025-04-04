@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaunchX | Connect Founders & Investors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="particles" id="particles-js"></div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Floating Navigation -->
+    <header>
+        <div class="container">
+            <nav class="glass-nav">
+                <div class="logo" data-text="LaunchX">LaunchX</div>
+                <ul class="nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="browse.html"><i class="fas fa-rocket"></i> Startups</a></li>
+                    <li><a href="investers.html"><i class="fas fa-hand-holding-usd"></i> Investors</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="auth-buttons">
+                        <button class="btn btn-login glass"><i class="fas fa-sign-in-alt"></i> Login</button>
+                        <button class="btn btn-signup pulse"><i class="fas fa-user-plus"></i> Sign Up</button>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Parallax -->
+    <main>
+        <section class="hero" id="home">
+            <div class="parallax-bg"></div>
+            <div class="container">
+                <div class="hero-content glass">
+                    <h1 class="text-gradient">Where <span class="typed-text"></span></h1>
+                    <p class="subtitle">Showcase your startup to the right audience and discover promising early-stage investment opportunities</p>
+                    <div class="hero-buttons">
+                        <a href="addstartup.html" class="btn btn-primary glow">
+                            <i class="fas fa-plus-circle"></i> List Your Startup
+                        </a>
+                        <a href="addstartup.html" class="btn btn-secondary glass" id="browseStartupsBtn">
+                            <i class="fas fa-search"></i> Browse Startups
+                        </a>
+                    </div>
+                    <div class="scroll-indicator">
+                        <div class="mouse"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Startups with 3D Cards -->
+        <section class="featured-startups" id="startups">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured <span>Startups</span></h2>
+                </div>
+                <div class="startup-grid" id="startupGrid">
+                    <!-- Startup cards will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Animated CTA Section -->
+        <section class="add-startup-cta" id="addStartup">
+            <div class="container">
+                <div class="cta-box glass floating">
+                    <div class="cta-content">
+                        <h3>Confused about your startup?</h3>
+                        <p>Join our community of innovative founders and connect with potential investors</p>
+                        <a href="https://aditya-kumar-roy.shinyapps.io/LaunchX/" class="btn btn-primary pulse">
+                            <i class="fas fa-robot"></i> Recommendation System
+                        </a>
+                    </div>
+                    <div class="cta-image">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3079/3079158.png" alt="Startup Help">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Glass Footer -->
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo" data-text="LaunchX">LaunchX</div>
+                    <p>Connecting visionary founders with strategic investors to build the future together.</p>
+                    <div class="newsletter glass">
+                        <input type="email" placeholder="Your email">
+                        <button class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-angellist"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="links-column">
+                        <h4><i class="fas fa-user-tie"></i> For Founders</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> How it works</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Pricing</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Resources</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-column">
+                        <h4><i class="fas fa-chart-line"></i> For Investors</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Discover Startups</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Investment Guide</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Deal Flow</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-column">
+                        <h4><i class="fas fa-building"></i> Company</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> About Us</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Careers</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TeamHawks. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Startup Detail Modal -->
+    <div class="modal" id="startupModal">
+        <div class="modal-content glass">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be inserted by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="app.js"></script>
+</body>
+</html>

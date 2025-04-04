@@ -1,0 +1,151 @@
+/* 🌙 General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 📦 Form Container */
+.container {
+    max-width: 600px;
+    background: linear-gradient(135deg, #1f1f1f, #292929);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 🚀 Dynamic Gradient Heading */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff8a00; /* Fallback */
+    background: linear-gradient(90deg, #ff8a00, #e52e71, #6a00f4);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: gradientMove 4s infinite linear;
+}
+
+/* ✨ Glow Effect */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #ff8a00; }
+    50% { text-shadow: 0 0 15px #e52e71; }
+    100% { text-shadow: 0 0 5px #ff8a00; }
+}
+h2:hover {
+    animation: glow 2s infinite alternate;
+}
+
+/* 🎨 Labels */
+label {
+    font-weight: 600;
+    display: block;
+    margin-top: 12px;
+}
+
+/* 🔲 Input Fields */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+/* ⚡ Hover & Focus Effects */
+input:focus, select:focus, textarea:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* 🎭 Submit Button */
+button {
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    color: white;
+    padding: 12px;
+    border: none;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* ✅ Checkboxes */
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+/* 🌌 Animated Background Particles */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: moveParticles 6s infinite linear;
+}
+
+/* Random Particle Sizes */
+.particle:nth-child(2) {
+    width: 8px;
+    height: 8px;
+    animation-duration: 8s;
+}
+
+.particle:nth-child(3) {
+    width: 10px;
+    height: 10px;
+    animation-duration: 10s;
+}
+
+/* 🌠 Particle Animation */
+@keyframes moveParticles {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(20px);
+        opacity: 0;
+    }
+}
