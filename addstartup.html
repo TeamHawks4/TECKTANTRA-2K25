@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Your Startup</title>
     <link rel="stylesheet" href="addstartup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
     <div class="container">
         <h2>🚀 Submit Your Startup</h2>
@@ -72,25 +81,16 @@
             <input type="file" id="pitchdeck" name="pitchdeck" accept=".pdf" required>
 
             <!-- Consent -->
-            <label>
+            <label class="checkbox-label">
                 <input type="checkbox" name="terms" required> I agree to the terms and conditions and privacy policy.
             </label>
-            <label>
+            <label class="checkbox-label">
                 <input type="checkbox" name="contact" required> I consent to be contacted regarding my submission.
             </label>
 
             <!-- Submit -->
             <button type="submit">Submit Startup</button>
-
         </form>
     </div>
-
-    <!-- Animated Background -->
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-
 </body>
 </html>
