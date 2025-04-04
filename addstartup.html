@@ -5,17 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startup Submission Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="addstartup.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-section {
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #2b82f6;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input {
+            width: auto;
+        }
+    </style>
 </head>
 <body>
-    <!-- Animated Background Particles -->
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
 
     <div class="container">
         <h2>🚀 Submit Your Startup</h2>
@@ -37,7 +91,7 @@
                 </div>
                 <div class="form-group">
                     <label for="linkedin">LinkedIn Profile</label>
-                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                    <input type="url" id="linkedin" name="linkedin">
                 </div>
             </div>
 
@@ -50,7 +104,7 @@
                 </div>
                 <div class="form-group">
                     <label for="website">Website</label>
-                    <input type="url" id="website" name="website" placeholder="https://yourstartup.com">
+                    <input type="url" id="website" name="website">
                 </div>
                 <div class="form-group">
                     <label for="industry">Industry/Sector*</label>
@@ -99,15 +153,6 @@
                 </div>
             </div>
 
-            <!-- File Upload -->
-            <div class="form-section">
-                <h3>Additional Information</h3>
-                <div class="form-group">
-                    <label for="pitchdeck">Upload Pitch Deck (PDF, max 10MB)*</label>
-                    <input type="file" id="pitchdeck" name="pitchdeck" accept=".pdf" required>
-                </div>
-            </div>
-
             <!-- Consent -->
             <div class="form-section">
                 <div class="form-group checkbox-group">
@@ -120,11 +165,65 @@
                 </div>
             </div>
 
-            <!-- Submit Button -->
-            <button type="submit" id="submitBtn">Submit Startup</button>
+            <!-- Submit -->
+            <button type="submit">Submit Startup</button>
         </form>
     </div>
 
-    <script src="addstartup.js"></script>
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // TODO: Replace with your actual Firebase project configuration
+        const firebaseConfig = {
+  apiKey: "AIzaSyA3hi4KnGVR8OjhHNrSutyPBnRWF8Hf5Tc",
+  authDomain: "startup-submission2.firebaseapp.com",
+  projectId: "startup-submission2",
+  storageBucket: "startup-submission2.firebasestorage.app",
+  messagingSenderId: "499118171725",
+  appId: "1:499118171725:web:fce63910aba050d599de04"
+};
+
+        
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Form submission logic
+        const form = document.getElementById("startupForm");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const data = {
+                name: form.name.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                linkedin: form.linkedin.value,
+                startup: form.startup.value,
+                website: form.website.value,
+                industry: form.industry.value,
+                description: form.description.value,
+                year: form.year.value,
+                stage: form.stage.value,
+                funding: form.funding.value,
+                problem: form.problem.value,
+                market: form.market.value,
+                competitors: form.competitors.value
+            };
+
+            // Save to Firebase using startup name as key
+            set(ref(db, 'startups/' + data.startup.replace(/\s+/g, '_')), data)
+                .then(() => {
+                    alert("Startup submitted successfully!");
+                    form.reset();
+                })
+                .catch((error) => {
+                    alert("Submission failed: " + error.message);
+                });
+        });
+    </script>
 </body>
 </html>
