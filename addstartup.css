@@ -7,21 +7,23 @@ body {
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* 📦 Form Container */
 .container {
     max-width: 600px;
+    width: 100%;
     background: linear-gradient(135deg, #1f1f1f, #292929);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     position: relative;
-    overflow: hidden;
+    margin: 20px 0;
+    z-index: 1;
 }
 
 /* 🚀 Dynamic Gradient Heading */
@@ -35,13 +37,16 @@ h2 {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    color: #ff8a00; /* Fallback */
+    color: #ff8a00;
     background: linear-gradient(90deg, #ff8a00, #e52e71, #6a00f4);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
     animation: gradientMove 4s infinite linear;
+    margin-top: 0;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 /* ✨ Glow Effect */
@@ -50,6 +55,7 @@ h2 {
     50% { text-shadow: 0 0 15px #e52e71; }
     100% { text-shadow: 0 0 5px #ff8a00; }
 }
+
 h2:hover {
     animation: glow 2s infinite alternate;
 }
@@ -58,13 +64,21 @@ h2:hover {
 label {
     font-weight: 600;
     display: block;
-    margin-top: 12px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-weight: normal;
 }
 
 /* 🔲 Input Fields */
 input, select, textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 5px;
     border: none;
     border-radius: 6px;
@@ -72,6 +86,12 @@ input, select, textarea {
     color: #ffffff;
     outline: none;
     transition: 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
 }
 
 /* ⚡ Hover & Focus Effects */
@@ -84,68 +104,119 @@ input:focus, select:focus, textarea:focus {
 button {
     background: linear-gradient(90deg, #ff8a00, #e52e71);
     color: white;
-    padding: 12px;
+    padding: 14px;
     border: none;
     width: 100%;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 15px;
-    transition: transform 0.2s ease-in-out;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
 }
 
 button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 /* ✅ Checkboxes */
 input[type="checkbox"] {
     width: auto;
-    margin-right: 5px;
+    margin-right: 10px;
+    accent-color: #ff8a00;
 }
 
 /* 🌌 Animated Background Particles */
 .particles {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
     pointer-events: none;
+    z-index: 0;
 }
 
 .particle {
     position: absolute;
     background: rgba(255, 255, 255, 0.1);
-    width: 6px;
-    height: 6px;
     border-radius: 50%;
-    animation: moveParticles 6s infinite linear;
+    animation: moveParticles linear infinite;
 }
 
-/* Random Particle Sizes */
+/* Random Particle Sizes and Positions */
+.particle:nth-child(1) {
+    width: 4px;
+    height: 4px;
+    top: 10%;
+    left: 20%;
+    animation-duration: 15s;
+}
+
 .particle:nth-child(2) {
-    width: 8px;
-    height: 8px;
-    animation-duration: 8s;
+    width: 6px;
+    height: 6px;
+    top: 80%;
+    left: 70%;
+    animation-duration: 20s;
 }
 
 .particle:nth-child(3) {
-    width: 10px;
-    height: 10px;
-    animation-duration: 10s;
+    width: 8px;
+    height: 8px;
+    top: 30%;
+    left: 50%;
+    animation-duration: 25s;
+}
+
+.particle:nth-child(4) {
+    width: 5px;
+    height: 5px;
+    top: 60%;
+    left: 10%;
+    animation-duration: 18s;
+}
+
+.particle:nth-child(5) {
+    width: 7px;
+    height: 7px;
+    top: 40%;
+    left: 80%;
+    animation-duration: 22s;
 }
 
 /* 🌠 Particle Animation */
 @keyframes moveParticles {
     0% {
-        transform: translateY(0) translateX(0);
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
         opacity: 1;
     }
     100% {
-        transform: translateY(-100vh) translateX(20px);
+        transform: translateY(-100px) translateX(100px);
         opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    input, select, textarea {
+        padding: 10px;
     }
 }
