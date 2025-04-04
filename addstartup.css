@@ -1,0 +1,272 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Form Container */
+.container {
+    max-width: 800px;
+    width: 100%;
+    background: linear-gradient(135deg, #1f1f1f, #292929);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    position: relative;
+    margin: 20px 0;
+    z-index: 1;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-section h3 {
+    color: #ff8a00;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-group label:not(.checkbox-group label)::after {
+    content: '*';
+    color: #ff6b6b;
+    margin-left: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.form-group.required label:not(.checkbox-group label)::after {
+    opacity: 1;
+}
+
+/* Input Fields */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+input:focus, select:focus, textarea:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.checkbox-group label::after {
+    content: none !important;
+}
+
+/* Submit Button */
+button {
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    color: white;
+    padding: 14px;
+    border: none;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Animated Background Particles */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: moveParticles linear infinite;
+}
+
+/* Particle Animations */
+@keyframes moveParticles {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Random Particle Sizes and Positions */
+.particle:nth-child(1) {
+    width: 4px;
+    height: 4px;
+    top: 10%;
+    left: 20%;
+    animation-duration: 15s;
+}
+
+.particle:nth-child(2) {
+    width: 6px;
+    height: 6px;
+    top: 80%;
+    left: 70%;
+    animation-duration: 20s;
+}
+
+.particle:nth-child(3) {
+    width: 8px;
+    height: 8px;
+    top: 30%;
+    left: 50%;
+    animation-duration: 25s;
+}
+
+.particle:nth-child(4) {
+    width: 5px;
+    height: 5px;
+    top: 60%;
+    left: 10%;
+    animation-duration: 18s;
+}
+
+.particle:nth-child(5) {
+    width: 7px;
+    height: 7px;
+    top: 40%;
+    left: 80%;
+    animation-duration: 22s;
+}
+
+/* Error Styling */
+.error {
+    border: 1px solid #ff6b6b !important;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Loading Spinner */
+.spinner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    border-radius: 12px;
+    display: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ff8a00;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Success Message */
+.success-message {
+    display: none;
+    text-align: center;
+    padding: 30px;
+}
+
+.success-message h3 {
+    color: #4caf50;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    input, select, textarea {
+        padding: 10px;
+    }
+}
