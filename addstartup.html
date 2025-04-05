@@ -1,130 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startup Submission Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="addstartup.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Startup Submission Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      background: white;
+      padding: 20px;
+      margin: auto;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background: #218838;
+    }
+  </style>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 </head>
+
 <body>
-    <!-- Animated Background Particles -->
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
 
-    <div class="container">
-        <h2>🚀 Submit Your Startup</h2>
-        <form id="startupForm">
-            <!-- Founder Details -->
-            <div class="form-section">
-                <h3>Founder Information</h3>
-                <div class="form-group">
-                    <label for="name">Full Name*</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email*</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number*</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="linkedin">LinkedIn Profile</label>
-                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
-                </div>
-            </div>
+  <div class="container">
+    <h2>Startup Submission Form</h2>
+    <form id="startupForm">
+      <!-- Founder Details -->
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
 
-            <!-- Startup Details -->
-            <div class="form-section">
-                <h3>Startup Details</h3>
-                <div class="form-group">
-                    <label for="startup">Startup Name*</label>
-                    <input type="text" id="startup" name="startup" required>
-                </div>
-                <div class="form-group">
-                    <label for="website">Website</label>
-                    <input type="url" id="website" name="website" placeholder="https://yourstartup.com">
-                </div>
-                <div class="form-group">
-                    <label for="industry">Industry/Sector*</label>
-                    <input type="text" id="industry" name="industry" required>
-                </div>
-                <div class="form-group">
-                    <label for="description">Brief Description*</label>
-                    <textarea id="description" name="description" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="year">Year Founded*</label>
-                    <input type="number" id="year" name="year" min="1900" max="2025" required>
-                </div>
-                <div class="form-group">
-                    <label for="stage">Startup Stage*</label>
-                    <select id="stage" name="stage" required>
-                        <option value="">Select stage</option>
-                        <option value="Idea">Idea</option>
-                        <option value="MVP">MVP</option>
-                        <option value="Pre-revenue">Pre-revenue</option>
-                        <option value="Revenue-generating">Revenue-generating</option>
-                        <option value="Scaling">Scaling</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="funding">Funding Status*</label>
-                    <select id="funding" name="funding" required>
-                        <option value="">Select funding stage</option>
-                        <option value="Bootstrapped">Bootstrapped</option>
-                        <option value="Seed">Seed</option>
-                        <option value="Series A">Series A</option>
-                        <option value="Series B+">Series B+</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="problem">What problem does your startup solve?*</label>
-                    <textarea id="problem" name="problem" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="market">Target Market*</label>
-                    <textarea id="market" name="market" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="competitors">Key Competitors (if any)</label>
-                    <textarea id="competitors" name="competitors" rows="3"></textarea>
-                </div>
-            </div>
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
 
-            <!-- File Upload -->
-            <div class="form-section">
-                <h3>Additional Information</h3>
-                <div class="form-group">
-                    <label for="pitchdeck">Upload Pitch Deck (PDF, max 10MB)*</label>
-                    <input type="file" id="pitchdeck" name="pitchdeck" accept=".pdf" required>
-                </div>
-            </div>
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required />
 
-            <!-- Consent -->
-            <div class="form-section">
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">I agree to the terms and conditions and privacy policy*</label>
-                </div>
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="contact" name="contact" required>
-                    <label for="contact">I consent to be contacted regarding my submission*</label>
-                </div>
-            </div>
+      <label for="linkedin">LinkedIn Profile (optional)</label>
+      <input type="url" id="linkedin" />
 
-            <!-- Submit Button -->
-            <button type="submit" id="submitBtn">Submit Startup</button>
-        </form>
-    </div>
+      <!-- Startup Details -->
+      <label for="startup">Startup Name</label>
+      <input type="text" id="startup" required />
 
-    <script src="addstartup.js"></script>
+      <label for="website">Website (if available)</label>
+      <input type="url" id="website" />
+
+      <label for="industry">Industry/Sector</label>
+      <input type="text" id="industry" required />
+
+      <label for="description">Brief Description</label>
+      <textarea id="description" rows="4" required></textarea>
+
+      <label for="year">Year Founded</label>
+      <input type="number" id="year" min="1900" max="2025" required />
+
+      <label for="stage">Startup Stage</label>
+      <select id="stage">
+        <option value="Idea">Idea</option>
+        <option value="MVP">MVP</option>
+        <option value="Pre-revenue">Pre-revenue</option>
+        <option value="Revenue-generating">Revenue-generating</option>
+        <option value="Scaling">Scaling</option>
+      </select>
+
+      <label for="funding">Funding Status</label>
+      <select id="funding">
+        <option value="Bootstrapped">Bootstrapped</option>
+        <option value="Seed">Seed</option>
+        <option value="Series A">Series A</option>
+        <option value="Series B+">Series B+</option>
+      </select>
+
+      <label for="problem">What problem does your startup solve?</label>
+      <textarea id="problem" rows="4" required></textarea>
+
+      <label for="market">Target Market</label>
+      <textarea id="market" rows="4" required></textarea>
+
+      <label for="competitors">Key Competitors (if any)</label>
+      <textarea id="competitors" rows="3"></textarea>
+
+      <!-- File Upload (skip file upload for now) -->
+      <label for="pitchdeck">Upload Pitch Deck (PDF, max 10MB)</label>
+      <input type="file" id="pitchdeck" accept=".pdf" />
+
+      <!-- Consent -->
+      <label>
+        <input type="checkbox" id="terms" required />
+        I agree to the terms and conditions and privacy policy.
+      </label>
+      <label>
+        <input type="checkbox" id="contact" required />
+        I consent to be contacted regarding my submission.
+      </label>
+
+      <button type="submit">Submit Startup</button>
+    </form>
+  </div>
+
+  <!-- Firebase Config and Script -->
+  <script>
+    // TODO: Replace with your actual Firebase config
+    const firebaseConfig = {
+  apiKey: "AIzaSyDCmaQQTH2wP5m7WxQoPsbVAaaTHAj6XZk",
+  authDomain: "startup-submission.firebaseapp.com",
+  projectId: "startup-submission",
+  storageBucket: "startup-submission.firebasestorage.app",
+  messagingSenderId: "1004958226090",
+  appId: "1:1004958226090:web:1e8f1fac7370f159d322d3"
+};
+
+    
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Form Submission
+    document.getElementById("startupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const startupData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        linkedin: document.getElementById("linkedin").value,
+        startup: document.getElementById("startup").value,
+        website: document.getElementById("website").value,
+        industry: document.getElementById("industry").value,
+        description: document.getElementById("description").value,
+        year: document.getElementById("year").value,
+        stage: document.getElementById("stage").value,
+        funding: document.getElementById("funding").value,
+        problem: document.getElementById("problem").value,
+        market: document.getElementById("market").value,
+        competitors: document.getElementById("competitors").value,
+        termsAccepted: document.getElementById("terms").checked,
+        consentToContact: document.getElementById("contact").checked,
+        timestamp: new Date().toISOString()
+      };
+
+      const newRef = database.ref("startups").push();
+      newRef.set(startupData)
+        .then(() => {
+          alert("Startup submitted successfully!");
+          document.getElementById("startupForm").reset();
+        })
+        .catch((error) => {
+          console.error("Error saving to Firebase:", error);
+          alert("Failed to submit. Please try again.");
+        });
+    });
+  </script>
 </body>
 </html>
